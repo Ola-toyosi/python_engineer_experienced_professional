@@ -15,7 +15,7 @@
         "orientation": "ABCDEFGHIJKLMNOPQRSTU"
       },
       "time": 890,
-      "acl": [],
+      "acl": ["get"],
       "publicFeed": false,
       "internationalCountries": [
         "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
