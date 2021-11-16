@@ -1,0 +1,5 @@
+setuptools 
+wheel
+jsonschema
+ipython[notebook]
+genson
