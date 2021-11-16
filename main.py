@@ -12,6 +12,32 @@ try:
     f = open(f'./data/{jsonFile}.json', )
     jsonData = json.load(f)
     f.close()
+
+
+    def get_schema():
+        # """This function loads the given schema available"""
+        with open('./schema/sampschema_1.json', 'r') as file:
+            schema = json.load(file)
+        print(schema)
+
+
+    schemaFile = get_schema()
+
+
+    def validateJson(jsonData):
+        try:
+            validate(instance=jsonData, schema=schemaFile)
+        except jsonschema.exceptions.ValidationError as err:
+            print(err)
+            err = "Given JSON data is InValid"
+            return False, err
+        message = "Given JSON data is Valid"
+        return True, message
+
+
+    is_valid, msg = validateJson(jsonData)
+    print(msg)
+
     output_dict = {}
 
     for i in jsonData['message']:
@@ -53,30 +79,7 @@ except FileNotFoundError as err:
     err = 'File not in directory'
 
 
-# def get_schema():
-#     # """This function loads the given schema available"""
-#     with open('./schema/sampschema_1.json', 'r') as file:
-#         schema = json.load(file)
-#     print (schema)
-#
-# get_schema()
 
-# schemaFile = get_schema()
-
-
-# def validateJson(jsonData):
-#     try:
-#         validate(instance=jsonData, schema=schemaFile)
-#     except jsonschema.exceptions.ValidationError as err:
-#         print(err)
-#         err = "Given JSON data is InValid"
-#         return False, err
-#     message = "Given JSON data is Valid"
-#     return True, message
-
-
-# is_valid, msg = validateJson(jsonData)
-# print(msg)
 
 
 
